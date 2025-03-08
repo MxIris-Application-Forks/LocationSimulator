@@ -45,6 +45,11 @@ class OnboardViewController: NSViewController {
     override func loadView() {
         self.view = NSView(frame: .zero)
 
+        // Fix weird layout bugs on macOS 14
+        self.pageControl.clipsToBounds = true
+        self.leftArrow.clipsToBounds = true
+        self.rightArrow.clipsToBounds = true
+
         self.pageController.view = pageView
 
         self.doLayout()
